@@ -10,6 +10,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 
 @Entity
@@ -30,13 +32,13 @@ public class Transaction extends Auditable {
     @Setter
     @NotNull
     @NotBlank
-    private Date date;
+    private LocalDate date;
 
     @Getter
     @Setter
     @NotBlank
     @NotNull
-    private Time time;
+    private LocalTime time;
 
     @Getter
     @Setter
@@ -66,8 +68,8 @@ public class Transaction extends Auditable {
     public static final class TransactionBuilder {
         private Shopkeeper shopkeeper;
         private Customer customer;
-        private Date date;
-        private Time time;
+        private LocalDate date;
+        private LocalTime time;
         private Long amount;
         private Long userRating;
         private Long shopkeeperRating;
@@ -89,12 +91,12 @@ public class Transaction extends Auditable {
             return this;
         }
 
-        public TransactionBuilder withDate(Date date) {
+        public TransactionBuilder withDate(LocalDate date) {
             this.date = date;
             return this;
         }
 
-        public TransactionBuilder withTime(Time time) {
+        public TransactionBuilder withTime(LocalTime time) {
             this.time = time;
             return this;
         }
